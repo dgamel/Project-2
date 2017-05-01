@@ -6,7 +6,8 @@
     "start": "NODE_ENV=production node ./bin/www",
     "dev": "NODE_ENV=development DEBUG=my-project-2:* nodemon ./bin/www",
     "test": "NODE_ENV=test ./node_modules/.bin/jasmine-node spec --verbose --color",
-    "auto-test": "NODE_ENV=test ./node_modules/.bin/jasmine-node spec --autotest --color --watch routes"
+    "auto-test": "NODE_ENV=test ./node_modules/.bin/jasmine-node spec --autotest --color --watch routes",
+    "seed": "NODE_ENV=development node db/seeds/bookshelf/dev.js"
   },
   "dependencies": {
     "body-parser": "~1.17.1",
