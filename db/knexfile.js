@@ -1,3 +1,6 @@
+// this file contains all of the credentials and connection details for the
+// databases that Knex will use in this application will
+
 module.exports = {
   development: {
     client: 'postgresql',
@@ -16,7 +19,7 @@ module.exports = {
       tableName: 'knex_migrations'
     },
     seeds: {
-      directory: __dirname + '/seeds/dev'
+      directory: __dirname + '/seeds/bookshelf'
     }
   },
 
@@ -37,26 +40,7 @@ module.exports = {
       tableName: 'knex_migrations'
     },
     seeds: {
-      directory: __dirname + '/seeds/dev'
-    }
-  },
-
-  staging: {
-    client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: 'knex_migrations'
-    },
-    seeds: {
-      directory: './seeds/staging'
+      directory: __dirname + '/seeds/bookshelf'
     }
   },
 
