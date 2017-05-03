@@ -1,12 +1,12 @@
-var express = require('express');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+const express = require('express');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const app = express();
 
-var index = require('./routes/index');
-var items = require('./routes/items');
+const index = require('./routes/index');
 
-var app = express();
+const products = require('./routes/product');
 
 
 // uncomment after placing your favicon in /public
@@ -15,8 +15,8 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use('/items', items);
 
+app.use('/products', products);
 app.use('/', index);
 
 // catch 404 and forward to error handler
