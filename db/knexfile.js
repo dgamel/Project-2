@@ -1,6 +1,11 @@
 // this file contains all of the credentials and connection details for the
 // databases that Knex will use in this application will
 
+// cfenv gives us easy access to Cloud Foundry environment variables
+const cfenv = require('cfenv');
+const appEnv = cfenv.getAppEnv();
+const credentials = appEnv.getServiceCreds('buggy');
+
 module.exports = {
   development: {
     client: 'postgresql',
@@ -15,11 +20,11 @@ module.exports = {
       max: 10
     },
     migrations: {
-      directory: __dirname + '/migrations',
+      directory: + '/migrations',
       tableName: 'knex_migrations'
     },
     seeds: {
-      directory: __dirname + '/seeds/bookshelf'
+      directory:  '/seeds/bookshelf'
     }
   },
 
@@ -36,21 +41,17 @@ module.exports = {
       max: 10
     },
     migrations: {
-      directory: __dirname + '/migrations',
+      directory: '/migrations',
       tableName: 'knex_migrations'
     },
     seeds: {
-      directory: __dirname + '/seeds/bookshelf'
+      directory: '/seeds/bookshelf'
     }
   },
 
   production: {
-    client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
+    client: 'mysql',
+    connection: credentials ? credentials.uri : null,
     pool: {
       min: 2,
       max: 10
@@ -59,7 +60,7 @@ module.exports = {
       tableName: 'knex_migrations'
     },
     seeds: {
-      directory: './seeds/production'
+      directory: '/seeds/bookshelf'
     }
   }
 };

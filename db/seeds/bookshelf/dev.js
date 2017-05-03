@@ -9,6 +9,7 @@ const Product = require('../../../models/product');
       Product.forge( { manufacture: 'Dalton Carpet', product_description: 'Charisma Butter Pecan 8 x 10 Area Rug', retail_cost: 245.00, on_hand: 12}).save(),
       Product.forge( { manufacture: 'Shaw', product_description: 'Rush Brown/Beige 9 x 13 Area Rug', retail_cost: 1560.00, on_hand: 2}).save(),
       Product.forge( { manufacture: 'Dalton Carpet', product_description: 'Charisma Butter Pecan 8 x 10 Area Rug', retail_cost: 245.00, on_hand: 12}).save(),
+      
 
     ]))
   .then( () => {
