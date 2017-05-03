@@ -23,3 +23,7 @@ const Product = require('../../../models/product');
     console.error(err);
     process.exit(1);
   });
+
+
+//  DEMO SCRIPT#  insert into product (manufacture, product_description, retail_cost, on_hand)
+//  DEMO SCRIPT#  values ('Charleston', 'Martha Stewart Conversation Set', '1200.00', '5');

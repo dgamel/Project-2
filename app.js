@@ -7,6 +7,7 @@ const app = express();
 const index = require('./routes/index');
 
 const products = require('./routes/product');
+//const products = require('./routes/transaction');
 
 
 // uncomment after placing your favicon in /public
