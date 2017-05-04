@@ -14,13 +14,13 @@ router.get('/', function(req, res, next) {
 
 // SHOW
 router.get('/:id', function(req, res, next) {
-  Product.where({id: req.params.id}).fetch ().then( (products) => {
-    if (!products) {
+  Product.where({id: req.params.id}).fetch ().then( (product) => {
+    if (!product) {
 
       res.status(404).json({ message: 'Product not found'});
     }
     else {
-      res.status(200).json(products);
+      res.status(200).json(product);
     }
   }).catch( (err) => {
     console.log(err);
@@ -31,8 +31,8 @@ router.get('/:id', function(req, res, next) {
 
 // CREATE
 router.post('/', (req, res, next) => {
-  Product.forge(req.body).save().then( (products) => {
-    res.json(products);
+  Movie.forge(req.body).save().then( (movie) => {
+    res.json(movie);
   }).catch( (err) => {
     console.log(err);
     res.status(500).json(err);
@@ -41,8 +41,8 @@ router.post('/', (req, res, next) => {
 
 // UPDATE
 router.put('/:id', (req, res, next) => {
-  Product.forge({'id': req.params.id}).save(req.body).then( (products) => {
-    res.json(products);
+  Movie.forge({'id': req.params.id}).save(req.body).then( (movie) => {
+    res.json(movie);
   }).catch( (err) => {
     console.log(err);
     res.status(500).json(err);
@@ -51,15 +51,15 @@ router.put('/:id', (req, res, next) => {
 
 // DESTROY
 router.delete('/:id', (req, res, next) => {
-  Product.where({id: req.params.id}).fetch().then( (products) => {
-    if (!products) {
-      res.status(404).json({ message: 'Products not found'});
+  Movie.where({id: req.params.id}).fetch().then( (movie) => {
+    if (!movie) {
+      res.status(404).json({ message: 'Movie not found'});
     }
     else {
-      products
+      movie
       .destroy()
-      .then( (products) => {
-        res.json(products);
+      .then( (movie) => {
+        res.json(movie);
       }).catch( (err) => {
         console.log(err);
         res.status(500).json();

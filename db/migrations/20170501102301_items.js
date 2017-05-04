@@ -6,6 +6,12 @@ exports.up = function(knex, Promise) {
     table.string('product_description').notNullable();
     table.decimal('retail_cost', 14, 2).notNullable();
     table.integer('on_hand').notNullable();
+
+    // table.string('manufacture');
+    // table.string('product_description');
+    // table.decimal('retail_cost', 14, 2);
+    // table.integer('on_hand');
+
     table.timestamps(true, true);  // adds created_at and updated_at
   })
 };

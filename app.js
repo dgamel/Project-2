@@ -8,6 +8,7 @@ const index = require('./routes/index');
 
 const products = require('./routes/product');
 //const products = require('./routes/transaction');
+const transaction = require('./routes/transaction');
 
 
 // uncomment after placing your favicon in /public
@@ -18,6 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/products', products);
+app.use('/transaction', transaction);
 app.use('/', index);
 
 // catch 404 and forward to error handler
