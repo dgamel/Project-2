@@ -9,7 +9,7 @@ const Product = require('../../../models/product');
       Product.forge( { manufacture: 'Dalton Carpet', product_description: 'Charisma Butter Pecan 8 x 10 Area Rug', retail_cost: 245.00, on_hand: 12}).save(),
       Product.forge( { manufacture: 'Shaw', product_description: 'Rush Brown/Beige 9 x 13 Area Rug', retail_cost: 1560.00, on_hand: 2}).save(),
       Product.forge( { manufacture: 'Dalton Carpet', product_description: 'Charisma Butter Pecan 8 x 10 Area Rug', retail_cost: 245.00, on_hand: 12}).save(),
-      
+
 
     ]))
   .then( () => {
@@ -24,7 +24,3 @@ const Product = require('../../../models/product');
     console.error(err);
     process.exit(1);
   });
-
-
-//  DEMO SCRIPT#  insert into product (manufacture, product_description, retail_cost, on_hand)
-//  DEMO SCRIPT#  values ('Charleston', 'Martha Stewart Conversation Set', '1200.00', '5');

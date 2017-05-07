@@ -53,7 +53,7 @@ router.put('/:id', (req, res, next) => {
 router.delete('/:id', (req, res, next) => {
   Movie.where({id: req.params.id}).fetch().then( (movie) => {
     if (!movie) {
-      res.status(404).json({ message: 'Movie not found'});
+      res.status(404).json({ message: 'Product not found'});
     }
     else {
       movie
