@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
@@ -13,14 +14,17 @@ const transaction = require('./routes/transaction');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(express.static(path.join(__dirname, 'client/public')));
+app.set('port', (process.env.PORT || 3001))
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use('/products', products);
-app.use('/transaction', transaction);
-app.use('/', index);
+app.use('/api/products', products);
+app.use('/api/transaction', transaction);
+app.use('/api', index);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

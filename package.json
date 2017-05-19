@@ -4,15 +4,18 @@
   "private": true,
   "scripts": {
     "start": "NODE_ENV=production node ./bin/www",
-    "dev": "NODE_ENV=development DEBUG=my-project-2:* nodemon ./bin/www",
+    "dev": "NODE_ENV=development DEBUG=my-project-2:* concurrently  \"yarn run dev-server\" \"yarn run dev-client\"",
     "test": "NODE_ENV=test ./node_modules/.bin/jasmine-node spec --verbose --color",
     "auto-test": "NODE_ENV=test ./node_modules/.bin/jasmine-node spec --autotest --color --watch routes",
-    "seed": "NODE_ENV=development node db/seeds/bookshelf/dev.js"
+    "seed": "NODE_ENV=development node db/seeds/bookshelf/dev.js",
+    "dev-server" : "PORT=3001 nodemon ./bin/www",
+    "dev-client": "PORT=3000 cd client && yarn start"
   },
   "dependencies": {
     "body-parser": "~1.17.1",
     "bookshelf": "^0.10.3",
     "cfenv": "^1.0.4",
+    "concurrently": "^3.4.0",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.3",
     "express": "~4.15.2",
