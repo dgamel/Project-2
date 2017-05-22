@@ -4,6 +4,7 @@ const router = require('express').Router();
 
 // INDEX
 router.get('/', function(req, res, next) {
+  console.log('hitting route!');
   Product.fetchAll().then( (products) => {
     res.status(200).json(products);
   }).catch( (err) => {

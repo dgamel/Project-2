@@ -1,0 +1,35 @@
+LOG:  database system was shut down at 2017-05-22 12:36:17 EDT
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+FATAL:  database "kpj81hf" does not exist
+FATAL:  database "kpj81hf" does not exist
+FATAL:  database "kpj81hf" does not exist
+FATAL:  database "kpj81hf" does not exist
+ERROR:  relation "product" does not exist at character 15
+STATEMENT:  SELECT * FROM product
+	;
+ERROR:  relation "products" does not exist at character 15
+STATEMENT:  SELECT * FROM products
+	;
+ERROR:  syntax error at or near ";" at character 14
+STATEMENT:  SELECT * FROM;
+ERROR:  relation "products" does not exist at character 15
+STATEMENT:  SELECT * FROM products
+	;
+ERROR:  relation "product" does not exist at character 15
+STATEMENT:  SELECT * FROM product
+	;
+FATAL:  database "kpj81hf" does not exist
+ERROR:  syntax error at or near ";" at character 41
+STATEMENT:  GRANT ALL PRIVILEGES ON DATABASE kpj81hf;
+LOG:  incomplete startup packet
+LOG:  incomplete startup packet
+LOG:  incomplete startup packet
+LOG:  incomplete startup packet
+LOG:  incomplete startup packet
+LOG:  incomplete startup packet
+ERROR:  relation "product" does not exist at character 13
+STATEMENT:  delete from "product" where "id" != $1
+ERROR:  cannot drop the currently open database
+STATEMENT:  DROP DATABASE shoppingcart_dev;
