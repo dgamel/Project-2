@@ -14,6 +14,7 @@ ReactDOM.render(
     <div>
       <Route exact path="/" component={App} />
       <Route exact path="/products" component={Products}/>
+{/*      <Route exact path="/products/id" component={Id}/> */}
     </div>
   </Router>, document.getElementById('root'));
 registerServiceWorker();

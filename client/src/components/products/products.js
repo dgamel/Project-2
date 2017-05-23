@@ -9,7 +9,8 @@ class Products extends Component {
           <img src="http://lorempixel.com/400/400/" />
           <p>{product.manufacture} </p>
           <p> description: {product.product_description}</p>
-          <p> other stuff </p>
+          <button> ADD TO CART </button>
+
         </div>
       )
     })
