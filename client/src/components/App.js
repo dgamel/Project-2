@@ -6,27 +6,6 @@ import '../styles/App.css';
 
 class App extends Component {
 
-  constructor() {
-    super()
-
-    this.state = {
-      furniture: []
-    }
-  }
-
-  getProducts = () => {
-      fetch('/api/products/')
-      .then(response => response.json())
-      .then(furniture => {
-        console.log(furniture);
-        this.setState({furniture})
-      })
-  }
-
-  componentDidMount = () => {
-    this.getProducts()
-  }
-
   render() {
     return (
       <div className="App">
@@ -38,7 +17,7 @@ class App extends Component {
           It's that time of the year!
         </p>
 
-        <Link to={{pathname: "/products", state: {furniture: this.state.furniture}}}> Products </Link>
+        <Link to={{pathname: "/products"}}> Products </Link>
       </div>
     );
   }

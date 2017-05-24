@@ -4,3 +4,8 @@ body {
   font-family: sans-serif;
   background-color: lightgray;
 }
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
