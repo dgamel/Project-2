@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Cart from './cart';
 import '../../styles/products.css';
 
 class Products extends Component {
@@ -10,7 +11,7 @@ class Products extends Component {
       products: [],
       selectedItem: {},
       cart: []
-      // ,productsID: props.match.params.id
+
     }
   }
 
@@ -29,6 +30,25 @@ class Products extends Component {
     }
   }
 
+  removeItemFromCart = (product, event) => {
+    alert(product.product_description);
+     let cartCopy = this.state.cart.slice(0)
+     this.setState({cart: cartCopy})
+
+     let i = cartCopy.indexOf("product.product_description");
+     if(i != -1) {
+     	cartCopy.splice(i, 1);
+     }
+
+    // remove this.slice(0);
+}
+
+
+    // clone cart array (from state)
+    // FIND product in cloned cart array and remove it from that array
+    // update state with refreshed cart array
+  // }
+
   getProducts = () => {
       fetch('/api/products/')
       .then(response => response.json())
@@ -44,16 +64,16 @@ class Products extends Component {
 
   updateSelectedItem = (event) => {
     console.log("I'm running!");
-    // get the ID of product
-    // clone products array (slice :))
-    // find the product in products array
-    // add that product to selectedItem
+
   }
 
   render() {
     let cartItems = this.state.cart.map(item => {
       return (
-        <p key={item.id}>Item: {item.manufacture}</p>
+        <Cart
+        key={item.id}
+        item={item}
+        removeItemFromCart={this.removeItemFromCart}/>
       );
     })
 
@@ -61,7 +81,7 @@ class Products extends Component {
       return (
         <div key={product.id}>
           <img src="http://lorempixel.com/400/400/" />
-          // <img src={product.imageUrl} />
+          <img src={product.imageUrl} />
           <p>{product.manufacture} </p>
           <p> description: {product.product_description}</p>
           <button onClick={ (event) => this.addItemToCart(product)} >

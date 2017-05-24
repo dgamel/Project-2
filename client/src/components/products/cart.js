@@ -5,11 +5,14 @@ import '../../styles/cart.css';
 const Cart = (props) => {
 
   return (
-    <Col xs={12}
+    <Col xs={6}
       className="cart"
-      onClick={(event) => props.toggleCompleted(props.cart, event)}
+
     >
-      <p>{props.product.title}</p>
+      <p><span className="product_description"> {props.item.product_description}</span> by {props.item.manufacture} ${props.item.retail_cost}</p>
+
+      <button onClick={(event) => props.removeItemFromCart(props.item, event)}> REMOVE ITEM FROM CART</button>
+
     </Col>
   )
 }
