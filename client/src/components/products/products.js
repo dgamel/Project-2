@@ -2,6 +2,13 @@ import React, {Component} from 'react';
 import Cart from './cart';
 import '../../styles/products.css';
 
+import product1 from '../../images/product_1.jpg';
+import product2 from '../../images/product_2.jpg';
+import product3 from '../../images/product_3.jpg';
+import product4 from '../../images/product_4.jpg';
+import product5 from '../../images/product_5.jpg';
+
+
 class Products extends Component {
 
   constructor() {
@@ -31,14 +38,16 @@ class Products extends Component {
   }
 
   removeItemFromCart = (product, event) => {
-    alert(product.product_description);
-     let cartCopy = this.state.cart.slice(0)
-     this.setState({cart: cartCopy})
+     let cartCopy = this.state.cart.slice()
 
-     let i = cartCopy.indexOf("product.product_description");
+     let i = cartCopy.indexOf(product);
      if(i != -1) {
      	cartCopy.splice(i, 1);
      }
+
+    //  cartCopy.splice(cartCopy.indexOf(product),1)
+     //
+     this.setState({cart: cartCopy})
 
     // remove this.slice(0);
 }
@@ -54,6 +63,9 @@ class Products extends Component {
       .then(response => response.json())
       .then(products => {
         console.log(products);
+        products.forEach((product, index) =>
+          product['image'] = require(`../../images/product_${index + 1}.jpg`))
+
         this.setState({products})
       })
   }
@@ -64,7 +76,6 @@ class Products extends Component {
 
   updateSelectedItem = (event) => {
     console.log("I'm running!");
-
   }
 
   render() {
@@ -77,16 +88,14 @@ class Products extends Component {
       );
     })
 
-    let products = this.state.products.map(product => {
+    let products = this.state.products.map((product) => {
       return (
         <div key={product.id}>
-          <img src="http://lorempixel.com/400/400/" />
-          <img src={product.imageUrl} />
-          <p>{product.manufacture} </p>
-          <p> description: {product.product_description}</p>
+          <img src={product.image} />
           <button onClick={ (event) => this.addItemToCart(product)} >
           ADD TO CART</button>
-
+          <p>{product.manufacture} </p>
+          <p>{product.product_description}</p>
         </div>
       )
     })
